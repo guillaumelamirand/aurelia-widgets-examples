@@ -1,0 +1,9 @@
+
+.sort-header .sort-header-link {
+  text-decoration: none;
+  color: #727272;
+  background-color: #FFFFFF;
+}
+.sort-header .sort-header-link-enabled{
+  color: #006B99;
+}

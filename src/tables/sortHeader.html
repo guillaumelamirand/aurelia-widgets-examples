@@ -1,0 +1,10 @@
+﻿<template>
+    <require from='./sortHeader.css'></require>
+    <div class="${class} sort-header">
+        <a href="#" class="sort-header-link ${isEnabled ? 'sort-header-link-enabled' : ''}" click.trigger="sort()">
+            ${title}
+            <i class="sort-header-icon fa fa-caret-up" if.bind="isAsc"></i>
+            <i class="sort-header-icon fa fa-caret-down" if.bind="isDesc"></i>
+        </a>
+    </div>
+</template>

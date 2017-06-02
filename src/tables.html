@@ -1,0 +1,29 @@
+<template>
+    <require from="./tables/sortHeader"></require>
+    <require from="./tables/groupAndOrderByValueConverter"></require>
+    <section class="au-animate">
+      <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <sort-header title="Label" sort-property="label" sort-service.bind="sortService"></sort-header>
+                    </th>
+                    <th>
+                        <sort-header title="Type" group-by-property="type" sort-property="type" sort-service.bind="sortService"></sort-header>
+                    </th>
+                </tr>
+            </thead>
+            <tbody repeat.for="[key, value] of items | groupAndOrderBy:sortService.groupByProperty:sortService.sortProperty:sortService.sortDirection">
+                <tr class="group-by-row" if.bind="key !== null">
+                    <td colspan="2">${key === "" ? "None" : key}</td>
+                </tr>
+                <tr class="item-row" repeat.for="item of value">
+                    <td>${item.label}</td>
+                    <td>${item.type}</td>
+                </tr>
+            </tbody>
+        </table>
+      </div> 
+    </section>
+</template>

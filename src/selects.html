@@ -1,0 +1,36 @@
+<template>
+    <require from="./selects/select-filter/selectFilter"></require>
+    <require from="./selects/select-period/selectPeriod"></require>
+    <section class="au-animate">
+      <div class="filters">
+          <select-filter repeat.for="filter of selectFilters" 
+                          view-model.ref="selectFilterElements[$index]" 
+                          custom-context.bind="context" 
+                          all-label.bind="filter.allLabel" 
+                          items.bind="filter.items" 
+                          selected-item.bind="filter.selectedItem">
+          </select-filter>
+      </div>   
+      <div>
+          <p repeat.for="filter of selectFilterElements" >
+            ${filter.selectedItem | toJson}
+          </div>
+      </div>  
+      <div class="periods">
+          <select-period custom-context.bind="context" 
+                          on-selection-changed.bind="onSelectPeriodAllChanged">
+          </select-period>
+          <select-period selected-period.bind="selectPeriodCustomSelected"
+          show-last-month.bind="false"
+          show-last-quarter.bind="false"
+          show-last-year.bind="false">
+          </select-period>
+      </div>   
+      <div>
+            <p>selectPeriodAll : ${selectPeriodAllNotify} hits / selected : ${selectPeriodAll | toJson}</p>
+            <p>
+              selectPeriodCustom : ${selectPeriodCustomSelected | toJson}
+            </p>
+      </div> 
+    </section>
+</template>

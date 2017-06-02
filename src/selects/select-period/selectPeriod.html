@@ -1,0 +1,35 @@
+﻿<template>
+    <require from='./selectPeriod.css'></require>
+
+    <div class="select-period ${selectedPeriod ? 'active' : ''}">
+        <button id="${selectHelper.idDropDownBtn}" class="select-button" click.delegate="selectHelper.changeDropDownMenuVisibility()" mouseout.delegate="selectHelper.hideDropDownMenu($event)">
+            <i class="select-button-icon glyphicon glyphicon-triangle-bottom"></i>
+            ${selectedPeriod ? selectedPeriod.label : allLabel}
+        </button>
+        <div id="${selectHelper.idDropDownMenu}" show.bind="selectHelper.dropDownMenuVisible" class="select-menu-container" mouseout.delegate="selectHelper.hideDropDownMenu($event)">
+            <div class="select-menu">
+                <div class="select-menu-item">
+                    <button class="select-menu-item-element" click.delegate="unSelectPeriod()">${allLabel}</button>
+                </div>
+                <div class="select-menu-item ${selectedPeriodIndex == 1 ? 'selected' : ''}" if.bind="showLastMonth">
+                    <button class="select-menu-item-element"  click.delegate="selectLastMonthPeriod()">${lastMonthLabel}</button>
+                </div>
+                <div class="select-menu-item ${selectedPeriodIndex == 2 ? 'selected' : ''}" if.bind="showLastQuarter">
+                    <button class="select-menu-item-element"  click.delegate="selectLastQuarterPeriod()">${lastQuarterLabel}</button>
+                </div>
+                <div class="select-menu-item ${selectedPeriodIndex == 3 ? 'selected' : ''}" if.bind="showLastYear">
+                    <button class="select-menu-item-element"  click.delegate="selectLastYearPeriod()">${lastYearLabel}</button>
+                </div>
+                <div class="select-menu-item ${customStartDate ? 'selected' : ''}" if.bind="showCustom">
+                    <div class="select-menu-item-element">
+                        Du : <input type="date" value.bind="customStartDate" placeholder="JJ/MM/AAAA" change.delegate="customDatesChanged($event.target.value, customEndDate)" />
+                    </div>
+                </div>
+                <div class="select-menu-item ${customEndDate ? 'selected' : ''}" if.bind="showCustom">
+                    <div class="select-menu-item-element">
+                        Au : <input type="date" value.bind="customEndDate" placeholder="JJ/MM/AAAA" change.delegate="customDatesChanged(customStartDate, $event.target.value)" />
+                    </div>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,21 @@
+<template>
+    <section class="au-animate">
+      <div class="form-container">
+        <form novalidate>
+                <div class="form-group">
+                    <label for="inputLabel">Label</label>
+                    <input type="text" class="form-control" id="inputLabel" value.bind="item.label & validate" placeholder="Label" required>
+                </div>
+                <div class="form-group">
+                    <label for="inputType">Type</label-required>
+                    <select id="inputType" class="form-control" value.bind="item.type & validate" required>
+                        <option selected model.bind="null">
+                            -- Choose a type --
+                        </option>
+                        <option repeat.for="type of types" model.bind="type">${type}</option>
+                    </select>
+                </div>
+            </form>
+      </div> 
+    </section>
+</template>

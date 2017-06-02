@@ -1,0 +1,79 @@
+.select-filter {
+  width: 170px;
+  height: 36px;
+  position: relative;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  font-style: normal;
+  margin: 0;
+  font-weight: 600;
+  color: #727272;
+  margin: 0px 10px;
+}
+.select-filter.control-label {
+  margin-bottom: 5px;
+}
+.select-filter .select-button {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border-radius: 25px;
+  border: 1px solid #727272;
+  text-align: left;
+  padding: 6px 12px;
+}
+.select-filter .select-button:active,
+.select-filter .select-button:focus {
+  outline: 0;
+}
+.select-filter .select-button .select-button-icon {
+  left: 85%;
+  position: absolute;
+  top: 35%;
+  font-size: 12px;
+}
+.select-filter .select-menu-container {
+  padding-top: 5px;
+}
+.select-filter .select-menu-container .select-menu {
+  position: absolute;
+  min-width: 100%;
+  min-height: 20px;
+  max-height: 250px;
+  overflow: auto;
+  right: 0;
+  z-index: 100;
+  background: #FFFFFF;
+  border: 1px solid #727272;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+.select-filter .select-menu-container .select-menu .select-menu-item {
+  color: #727272;
+}
+.select-filter .select-menu-container .select-menu .select-menu-item button {
+  width: 100%;
+  padding: 6px 16px;
+  background: transparent;
+  border: 0;
+  text-align: left;
+}
+.select-filter .select-menu-container .select-menu .select-menu-item button:active,
+.select-filter .select-menu-container .select-menu .select-menu-item button:focus {
+  outline: 0;
+}
+.select-filter .select-menu-container .select-menu .select-menu-item:hover {
+  background-color: #FAFAFA;
+  color: #006B99;
+}
+.select-filter .select-menu-container .select-menu .select-menu-item.selected {
+  color: #006B99;
+}
+.select-filter.active {
+  color: #006B99;
+}
+.select-filter.active .select-button,
+.select-filter.active .select-menu {
+  border: 1px solid #006B99;
+}

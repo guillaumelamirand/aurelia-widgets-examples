@@ -1,0 +1,20 @@
+﻿<template>
+    <require from='./selectFilter.css'></require>
+
+    <div id="select-filter" class="select-filter ${selectedItem ? 'active' : ''}">
+        <button id="${selectHelper.idDropDownBtn}" class="select-button" click.delegate="selectHelper.changeDropDownMenuVisibility()" mouseout.delegate="selectHelper.hideDropDownMenu($event)">
+            <i class="select-button-icon glyphicon glyphicon-triangle-bottom"></i>
+            ${selectedItem ? selectedItem.label : allLabel}
+        </button>
+        <div id="${selectHelper.idDropDownMenu}" show.bind="selectHelper.dropDownMenuVisible" class="select-menu-container" mouseout.delegate="selectHelper.hideDropDownMenu($event)">
+            <div class="select-menu">
+                <div class="select-menu-item">
+                    <button click.delegate="unSelectItem()">${allLabel}</button>
+                </div>
+                <div repeat.for="item of items" class="select-menu-item ${selectedItem === item ? 'selected' : ''}">
+                    <button click.delegate="selectItem(item)">${item.label}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
